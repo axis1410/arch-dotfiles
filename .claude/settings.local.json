@@ -11,7 +11,9 @@
       "Bash(tmux -V)",
       "Bash(grep -v \"^$\")",
       "Bash(export LANG=en_IN.UTF-8)",
-      "Bash(export LC_ALL=en_IN.UTF-8)"
+      "Bash(export LC_ALL=en_IN.UTF-8)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }
