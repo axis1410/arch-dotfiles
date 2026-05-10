@@ -1,70 +1,67 @@
 {
-    "layer": "bottom",
+    "layer": "top",
+    "position": "top",
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+    "spacing": 4,
 
-    "spacing": 18,
-    "margin-top": 10,
-    "modules-center": ["clock", "hyprland/workspaces", "pulseaudio", "network", "battery"],
-
-    "clock": {
-    	"interval": 60,
-    	"format": "{:%H:%M}",
-	"tooltip": false
-    },
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "battery", "custom/power"],
 
     "hyprland/workspaces": {
-	"format": "{name}",
-	"format-icons": {
-		"1": "1",
-		"2": "2",
-		"3": "3",
-		"4": "4",
-		"5": "5",
-		"active": "",
-		"default": ""
-	},
-       "persistent-workspaces": {
-             // "*": 5
-	     "HDMI-A-1": [1,2,3,4,5]
-       }
+        "format": "{name}",
+        "persistent-workspaces": {
+            "HDMI-A-1": [1, 2, 3, 4, 5]
+        }
     },
 
-"pulseaudio": {
-    "format": "{volume}%  {icon}",
-    "format-bluetooth": "{volume}%  ",
-    "format-muted": "",
-    "format-icons": {
-        "headphone": "",
-        "headset": "",
-        "phone": "",
-        "phone-muted": "",
-        "portable": "",
-        "car": "",
-        "default": ["", ""]
+    "clock": {
+        "interval": 60,
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a, %d %b %Y}",
+        "tooltip": false
     },
-    "scroll-step": 1,
-    "on-click": "pavucontrol",
-    "ignored-sinks": ["Easy Effects Sink"]
-},
 
-"network": {
-    "interface": "enp8s0",
-    "format": "{ifname}",
-    "format-wifi": "{essid} ({signalStrength}%) ",
-"format-ethernet": "󰈀 Wired",
-    "format-disconnected": "", //An empty format will hide the module.
-    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-    "tooltip-format-ethernet": "{ifname} ",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50
-},
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟  Muted",
+        "format-bluetooth": "  {volume}%",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headset": "󰋎",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 2,
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+
+    "network": {
+        "interface": "enp8s0",
+        "format-ethernet": "󰈀  Wired",
+        "format-wifi": "󰖩  {essid}",
+        "format-disconnected": "󰖪  Off",
+        "tooltip-format-ethernet": "{ifname}  {ipaddr}",
+        "tooltip-format-wifi": "{essid}  {signalStrength}%",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "~/.config/rofi/network.sh"
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/powermenu.sh"
+    },
 
     "battery": {
-	    "states": {
-		    "warning": 50,
-		    "critical": 15
-	    },
-        "format": "{capacity}",
-        "format-icons": ["", "", "", "", ""]
+        "states": {
+            "warning": 50,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     }
 }
