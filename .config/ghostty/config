@@ -1,0 +1,17 @@
+font-family = JetBrainsMono Nerd Font Mono
+
+font-thicken = true
+font-thicken-strength = 100
+
+font-size = 14
+
+adjust-cell-width = 0
+adjust-cell-height = -1
+
+theme = Tomorrow Night
+
+window-inherit-font-size = true
+
+background-blur = 95
+background-opacity = 0.95
+background-opacity-cells = true
